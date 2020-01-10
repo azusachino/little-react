@@ -1,0 +1,10 @@
+#file
+*.iml
+*.lock
+*-lock.json
+*.log
+
+#folder
+.idea/
+**/node_modules/
+
