@@ -11,20 +11,31 @@ interface IState {
   threads: IThread[]
 }
 
-class Index extends Component<{}, IState> {
-  config = {
-    navigationBarTitleText: '首页'
-  }
-
+class NodeDetail extends Component<{}, IState> {
   state = {
     loading: true,
     threads: []
   }
 
+  componentWillMount () {
+    const { full_name } = this.$router.params
+    Taro.setNavigationBarTitle({
+      title: decodeURI(full_name)
+    })
+  }
+
   async componentDidMount () {
+    const { short_name } = this.$router.params
     try {
+      const { data: { id } } = await Taro.request({
+        url: api.getNodeInfo({
+          name: short_name
+        })
+      })
       const res = await Taro.request<IThread[]>({
-        url: api.getLatestTopic()
+        url: api.getTopics({
+          node_id: id
+        })
       })
       this.setState({
         threads: res.data,
@@ -50,4 +61,4 @@ class Index extends Component<{}, IState> {
   }
 }
 
-export default Index
+export default NodeDetail
