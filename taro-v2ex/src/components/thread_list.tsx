@@ -1,28 +1,28 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Thread } from './thread'
+import Thread from './thread'
 import Loading from './loading'
-import { IMember } from '../interfaces/member'
-import { INode } from '../interfaces/node'
+import { Member } from '../interfaces/member'
+import { Node } from '../interfaces/node'
 
 import './thread.scss'
 
-interface IProps {
-  threads: IThread[],
+interface Props {
+  threads: ListThread[],
   loading: boolean
 }
 
-interface IThread {
+interface ListThread {
   title: string,
-  member: IMember,
-  node: INode,
+  member: Member,
+  node: Node,
   last_modified: number,
   id: number,
   replies: number
   key?: number
 }
 
-class ThreadList extends Component<IProps, {}> {
+class ThreadList extends Component<Props, {}> {
   static defaultProps = {
     threads: [],
     loading: true

@@ -7,4 +7,6 @@
 #folder
 .idea/
 **/node_modules/
+**/.temp/
+**/.idea/
 

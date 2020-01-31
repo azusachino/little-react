@@ -2,12 +2,13 @@
   "miniprogramRoot": "./dist",
   "projectname": "taro-v2ex",
   "description": "taro app for v2ex",
-  "appid": "touristappid",
+  "appid": "wxda3f4fef26dab3b0",
   "setting": {
     "urlCheck": true,
     "es6": true,
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "simulatorType": "wechat"
 }

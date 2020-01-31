@@ -2,4 +2,9 @@
 
 * learn react
 * some related practices
-* and other (jsx, pug...)
+* dva, umi, antd
+* and other (jsx, tsx...)
+
+
+# taro-learning
+1. 

@@ -2,15 +2,15 @@ import Taro, { Component, eventCenter } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 
 import { timeagoInst, Thread_DETAIL_NAVIGATE } from '../utils'
-import { IMember } from '../interfaces/member'
-import { INode } from '../interfaces/node'
+import { Member } from '../interfaces/member'
+import { Node } from '../interfaces/node'
 
 import './thread.scss'
 
-interface IProps {
+interface Props {
   title: string,
-  member: IMember,
-  node: INode,
+  member: Member,
+  node: Node,
   last_modified: number,
   tid: number,
   replies: number,
@@ -18,7 +18,7 @@ interface IProps {
   not_navi?: boolean // 不导航到 detail
 }
 
-class Thread extends Component<IProps, {}> {
+class Thread extends Component<Props, {}> {
 
   handleNavigate = () => {
     // 这里必须显式指名 this.props 包含 tid
@@ -31,7 +31,7 @@ class Thread extends Component<IProps, {}> {
     eventCenter.trigger(Thread_DETAIL_NAVIGATE, this.props)
     Taro.navigateTo({
       url: '/pages/thread_detail/thread_detail'
-    })
+    }).then()
   }
 
   render () {
@@ -72,4 +72,4 @@ class Thread extends Component<IProps, {}> {
   }
 }
 
-export { Thread }
+export default Thread

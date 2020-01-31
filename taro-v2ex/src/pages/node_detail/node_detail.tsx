@@ -1,17 +1,17 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { ThreadList } from '../../components/thread_list'
-import { IThread } from '../../interfaces/thread'
+import { Thread } from '../../interfaces/thread'
 import api from '../../utils/api'
 
 import './index.scss'
 
-interface IState {
+interface State {
   loading: boolean,
-  threads: IThread[]
+  threads: Thread[]
 }
 
-class NodeDetail extends Component<{}, IState> {
+class NodeDetail extends Component<{}, State> {
   state = {
     loading: true,
     threads: []
@@ -30,19 +30,21 @@ class NodeDetail extends Component<{}, IState> {
       const { data: { id } } = await Taro.request({
         url: api.getNodeInfo({
           name: short_name
-        })
+        }),
+        mode: 'cors'
       })
-      const res = await Taro.request<IThread[]>({
+      const res = await Taro.request<Thread[]>({
         url: api.getTopics({
           node_id: id
-        })
+        }),
+        mode: 'cors'
       })
       this.setState({
         threads: res.data,
         loading: false
       })
     } catch (error) {
-      Taro.showToast({
+      await Taro.showToast({
         title: '载入远程数据错误'
       })
     }

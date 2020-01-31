@@ -1,19 +1,19 @@
-import { IThread } from '../interfaces/thread'
+import { Thread } from '../interfaces/thread'
 import { eventCenter } from '@tarojs/taro'
 import timeago from 'timeago.js'
 // tslint:disable-next-line
 export const Thread_DETAIL_NAVIGATE = 'thread_detail_navigate'
 
-export interface IThreadProps extends IThread {
+export interface ThreadProps extends Thread {
   tid: string
 }
 
-eventCenter.on(Thread_DETAIL_NAVIGATE, (thread: IThreadProps) => {
+eventCenter.on(Thread_DETAIL_NAVIGATE, (thread: ThreadProps) => {
   GlobalState.thread = thread
 })
 
 export const GlobalState = {
-  thread: {} as IThreadProps
+  thread: {} as ThreadProps
 }
 
 export const timeagoInst = timeago()
