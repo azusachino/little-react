@@ -1,4 +1,4 @@
-export interface INode {
+export interface Node {
   avatar_large: string
   name: string
   avatar_normal: string

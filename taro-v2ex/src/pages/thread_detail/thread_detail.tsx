@@ -1,18 +1,18 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, RichText, Image } from '@tarojs/components'
-import { Thread } from '../../components/thread'
-import { Loading } from '../../components/loading'
-import { IThread } from '../../interfaces/thread'
+import Thd from '../../components/thread'
+import Loading from '../../components/loading'
+import { Thread } from '../../interfaces/thread'
 import api from '../../utils/api'
-import { timeagoInst, GlobalState, IThreadProps } from '../../utils'
+import { timeagoInst, GlobalState, ThreadProps } from '../../utils'
 
 import './index.scss'
 
-interface IState {
+interface State {
   loading: boolean
-  replies: IThread[],
+  replies: Thread[],
   content: string,
-  thread: IThreadProps
+  thread: ThreadProps
 }
 
 function prettyHTML (str: string) {
@@ -27,13 +27,13 @@ function prettyHTML (str: string) {
   return str.replace(/<img/gi, '<img class="img"')
 }
 
-class ThreadDetail extends Component<{}, IState> {
+class ThreadDetail extends Component<{}, State> {
   state = {
     loading: true,
     replies: [],
     content: '',
-    thread: {} as IThreadProps
-  } as IState
+    thread: {} as ThreadProps
+  } as State
 
   config = {
     navigationBarTitleText: '话题'
@@ -49,12 +49,13 @@ class ThreadDetail extends Component<{}, IState> {
     try {
       const id = GlobalState.thread.tid
       const [{ data }, { data: [ { content_rendered } ] } ] = await Promise.all([
-        Taro.request<IThread[]>({
+        Taro.request<Thread[]>({
           url: api.getReplies({
             'topic_id': id
-          })
+          }),
+          mode: 'cors'
         }),
-        Taro.request<IThread[]>({
+        Taro.request<Thread[]>({
           url: api.getTopics({
             id
           })
@@ -117,7 +118,7 @@ class ThreadDetail extends Component<{}, IState> {
 
     return (
       <View className='detail'>
-        <Thread
+        <Thd
           node={thread.node}
           title={thread.title}
           last_modified={thread.last_modified}

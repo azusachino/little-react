@@ -1,17 +1,17 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { ThreadList } from '../../components/thread_list'
-import { IThread } from '../../interfaces/thread'
+import { Thread } from '../../interfaces/thread'
 import api from '../../utils/api'
 
 import './index.scss'
 
-interface IState {
+interface State {
   loading: boolean,
-  threads: IThread[]
+  threads: Thread[]
 }
 
-class Index extends Component<{}, IState> {
+class Index extends Component<{}, State> {
   config = {
     navigationBarTitleText: '首页'
   }
@@ -23,15 +23,16 @@ class Index extends Component<{}, IState> {
 
   async componentDidMount () {
     try {
-      const res = await Taro.request<IThread[]>({
-        url: api.getLatestTopic()
+      const res = await Taro.request<Thread[]>({
+        url: api.getLatestTopic(),
+        mode: 'cors'
       })
       this.setState({
         threads: res.data,
         loading: false
       })
     } catch (error) {
-      Taro.showToast({
+      await Taro.showToast({
         title: '载入远程数据错误'
       })
     }

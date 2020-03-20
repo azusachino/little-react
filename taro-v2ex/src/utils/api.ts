@@ -18,13 +18,12 @@ const GET_TOPICS = 'topics/show.json'
 // 获取回复 :topic_id (:page , :page_size)?
 const GET_REPLIES = 'replies/show.json'
 
-function queryString (obj?: Object) {
+function queryString (obj?: object) {
   if (!obj) {
     return ''
   }
-  return '?' + Object.keys(obj).map(function (k) {
-    return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])
-  }).join('&')
+  return '?' + Object.keys(obj).map((k) =>
+    encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&')
 }
 
 function getAllNode () {

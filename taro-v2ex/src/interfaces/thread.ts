@@ -1,9 +1,9 @@
-import {INode} from './node'
-import {IMember} from './member'
+import {Node} from './node'
+import {Member} from './member'
 
-export interface IThread {
-  node: INode
-  member: IMember,
+export interface Thread {
+  node: Node
+  member: Member,
   last_reply_by: string;
   last_touched: number;
   title: string;

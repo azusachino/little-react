@@ -1,19 +1,9 @@
 import Taro, { Component, Config } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import '@tarojs/async-await'
 
 import Index from './pages/index'
 
-import configStore from './store'
-
 import './app.scss'
-
-// 如果需要在 h5 环境中开启 React Devtools
-// 取消以下注释：
-// if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
-//   require('nerv-devtools')
-// }
-
-const store = configStore()
 
 class App extends Component {
 
@@ -26,29 +16,33 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/nodes/nodes',
+      'pages/hot/hot',
+      'pages/node_detail/node_detail',
+      'pages/thread_detail/thread_detail'
     ],
     tabBar: {
       list: [{
-        'iconPath': 'resources/latest.png',
-        'selectedIconPath': 'resources/latest_on.png',
+        iconPath: 'resources/latest.png',
+        selectedIconPath: 'resources/latest_on.png',
         pagePath: 'pages/index/index',
         text: '最新'
       }, {
-        'iconPath': 'resources/hotest.png',
-        'selectedIconPath': 'resources/hotest_on.png',
+        iconPath: 'resources/hotest.png',
+        selectedIconPath: 'resources/hotest_on.png',
         pagePath: 'pages/hot/hot',
         text: '热门'
       }, {
-        'iconPath': 'resources/node.png',
-        'selectedIconPath': 'resources/node_on.png',
+        iconPath: 'resources/node.png',
+        selectedIconPath: 'resources/node_on.png',
         pagePath: 'pages/nodes/nodes',
         text: '节点'
       }],
-      'color': '#000',
-      'selectedColor': '#56abe4',
-      'backgroundColor': '#fff',
-      'borderStyle': 'white'
+      color: '#000',
+      selectedColor: '#56abe4',
+      backgroundColor: '#fff',
+      borderStyle: 'white'
     },
     window: {
       backgroundTextStyle: 'light',
@@ -70,9 +64,7 @@ class App extends Component {
   // 请勿修改此函数
   render () {
     return (
-      <Provider store={store}>
         <Index />
-      </Provider>
     )
   }
 }
