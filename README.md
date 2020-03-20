@@ -7,4 +7,3 @@
 
 
 # taro-learning
-1. 
