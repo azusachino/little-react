@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react'
+import React, { Component, Fragment } from 'react'
 import './index.css'
 
-import TodoItem from "../todoitem";
+import TodoItem from '../todoitem'
 
 class TodoList extends Component {
 
@@ -37,7 +37,7 @@ class TodoList extends Component {
     this.setState(() => {
       let list = this.state.list
       list.splice(index, 1)
-      return {list}
+      return { list }
     })
   }
 

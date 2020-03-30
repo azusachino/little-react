@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 class TodoItem extends Component {
 
   handleClick() {
-    const {deleteItem, index} = this.props
+    const { deleteItem, index } = this.props
     deleteItem(index)
   }
 
   constructor(props) {
-    super(props);
+    super(props)
     this.handleClick = this.handleClick().bind(this)
   }
 
