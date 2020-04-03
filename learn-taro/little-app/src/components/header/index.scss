@@ -1,0 +1,35 @@
+.header {
+  .background {
+    width: 100%;
+    height: 150px;
+    filter: blur(6px);
+  }
+
+  .store {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: -100;
+    .store_img {
+      width: 80px;
+      height: 80px;
+      border-radius: 6px;
+    }
+
+    .store_text {
+      z-index: 2;
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+
+      .tag_text {
+        border: 1px solid greenyellow;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 5px;
+
+      }
+    }
+  }
+}

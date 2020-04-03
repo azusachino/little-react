@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "little-meituan",
-  "description": "learn taro from imooc",
+  "projectname": "little-app",
+  "description": "first taro app",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
