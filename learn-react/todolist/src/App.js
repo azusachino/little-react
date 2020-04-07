@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 
-import TodoList from './components/todolist'
+import TodoList from './components/todolist-antd'
 
 function App() {
   return (
