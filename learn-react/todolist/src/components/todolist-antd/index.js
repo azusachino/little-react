@@ -1,16 +1,8 @@
-import React, { Component } from 'react'
-import 'antd/dist/antd.css'
-import { Input, Button, List } from 'antd'
+import React, {Component} from 'react'
 import store from '../../store'
-import { CHANGE_INPUT_VALUE } from '../../store/actionTypes'
+import {CHANGE_INPUT_VALUE} from '../../store/actionTypes'
+import TodoListUI from './indexUI'
 
-const data = [
-  'Racing car sprays burning fuel into crowd.',
-  'Japanese princess to wed commoner.',
-  'Australian walks 100km after outback crash.',
-  'Man charged over missing wedding girl.',
-  'Los Angeles battles huge wildfires.'
-]
 
 class TodoList extends Component {
 
@@ -38,18 +30,11 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div style={{ marginTop: '10px', marginLeft: '10px' }}>
-        <div>
-          <Input placeholder='please input your todo' style={{ width: '300px', marginLeft: 10 }}/>
-          <Button type='primary' onClick={this.handlerSubmit}>Submit</Button>
-        </div>
-        <List
-          style={{ marginTop: '10px', width: '300px' }}
-          bordered
-          dataSource={data}
-          renderItem={item => (<List.Item onClick={this.handleItemClick.bind(this, index)}>{item}</List.Item>)}
-        />
-      </div>
+      <TodoListUI
+        inputValue={this.state.inputValue}
+        list={this.state.list}
+        handleInputChange={this.handleInput}
+        handleSubmit={this.handleSubmit}/>
     )
   }
 }

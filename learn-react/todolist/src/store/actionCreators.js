@@ -1,4 +1,3 @@
-import {} from './actionTypes'
 import { CHANGE_INPUT_VALUE } from './actionTypes'
 
 export const getInputChangeAction = (val) => ({
