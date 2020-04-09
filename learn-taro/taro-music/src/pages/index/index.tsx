@@ -4,15 +4,20 @@ import './index.scss'
 
 export default class Index extends Component {
 
-  componentWillMount () { }
+  componentWillMount() {
+  }
 
-  componentDidMount () { }
+  componentDidMount() {
+  }
 
-  componentWillUnmount () { }
+  componentWillUnmount() {
+  }
 
-  componentDidShow () { }
+  componentDidShow() {
+  }
 
-  componentDidHide () { }
+  componentDidHide() {
+  }
 
   /**
    * 指定config的类型声明为: Taro.Config
@@ -25,7 +30,7 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  render () {
+  render() {
     return (
       <View className='index'>
         <Text>Hello world!</Text>
