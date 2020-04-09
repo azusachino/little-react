@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
-import store from '../../store'
-import { CHANGE_INPUT_VALUE } from '../../store/actionTypes'
+import store from '../../store-thunk'
+import { CHANGE_INPUT_VALUE } from '../../store-thunk/actionTypes'
 
 const data = [
   'Racing car sprays burning fuel into crowd.',

@@ -1,8 +1,6 @@
-import { createStore } from 'redux'
-import reducer from './reducer'
+import {createStore} from 'redux'
+import reducer from './reducers'
 
-const store = createStore(
-  reducer,
-  window.__)
+const store = createStore(reducer)
 
 export default store
