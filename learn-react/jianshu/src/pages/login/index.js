@@ -11,6 +11,7 @@ class Login extends PureComponent {
 			return (
 				<LoginWrapper>
 					<LoginBox>
+            { /*styled-components should use innerRef => return a real dom element */}
 						<Input placeholder='账号' innerRef={(input) => {this.account = input}}/>
 						<Input placeholder='密码' type='password' innerRef={(input) => {this.password = input}}/>
 						<Button onClick={() => this.props.login(this.account, this.password)}>登陆</Button>

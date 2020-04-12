@@ -100,6 +100,18 @@ export const WriterWrapper = styled.div`
 	text-align: center;
 `;
 
+export const WriterItem = styled.li`
+    margin-top: 15px;
+    line-height: 20px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    font-size: 13px;
+    a{
+
+    }
+`
+
 export const LoadMore = styled.div`
 	width: 100%;
 	height: 40px;
@@ -122,4 +134,13 @@ export const BackTop = styled.div`
 	text-align: center;
 	border: 1px solid #ccc;
 	font-size: 14px;
+`
+
+export const QrCode = styled.div`
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background-color: #fff;
 `

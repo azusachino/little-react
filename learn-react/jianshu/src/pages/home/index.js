@@ -7,10 +7,10 @@ import Writer from './components/Writer';
 import { actionCreators } from './store';
 import { BackTop } from './style';
 
-import { 
-	HomeWrapper,
-	HomeLeft,
-	HomeRight
+import {
+  HomeWrapper,
+  HomeLeft,
+  HomeRight
 } from './style';
 
 class Home extends PureComponent {

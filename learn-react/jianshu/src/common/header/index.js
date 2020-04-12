@@ -47,6 +47,7 @@ class Header extends Component {
               onClick={() => handleChangePage(page, totalPage, this.spinIcon)}
             >
               <i ref={(icon) => {
+                /* 通过ref获取真实的dom元素 */
                 this.spinIcon = icon
               }} className="iconfont spin">&#xe851;</i>
               换一批
@@ -114,7 +115,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.getIn(['header', 'focused']),
+    focused: state.getIn(['header', 'focused']), // same with state.get('header').get('focused')
     list: state.getIn(['header', 'list']),
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
