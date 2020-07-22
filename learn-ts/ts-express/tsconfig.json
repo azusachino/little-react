@@ -2,6 +2,10 @@
   "exclude": [
     "copyStatic.ts"
   ],
+  "include": [
+    "ts-axios.ts",
+    "./utils/request.ts"
+  ],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
