@@ -1,20 +1,23 @@
 import React, {PureComponent} from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './hello';
 
 // components
+import Hello from './hello';
 import ChatApp from "./components/chat-app";
+import CommentBox from "./components/comment-box";
+import {TabSelectorSample} from "./components/tab-selector";
+import {StatefulTabSelectSample} from "./components/tab-selector/StatefulTabSelector";
 
 // css
 import 'antd/dist/antd.css'
-import 'index.css'
+import './index.css'
 
-import loadable from 'react-loadable'
+/*import loadable from 'react-loadable'
 
 const d3Sample = loadable({
   loader: () => import(""),
   loading: () => <div>loading...</div>
-})
+})*/
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -22,10 +25,14 @@ const styles = {
 }
 
 const routeMap = {
-  chat: ChatApp
+  "chat": ChatApp,
+  "comment-box": CommentBox,
+  "tab-selector": TabSelectorSample,
+  "stateful-tab-selector": StatefulTabSelectSample
 }
 
 class App extends PureComponent {
+
   handleLinkClick = key => {
     window.history.pushState(null, "", `/#/${key}`)
     this.forceUpdate()
@@ -35,9 +42,9 @@ class App extends PureComponent {
     const currentPage = document.location.hash.replace(/#\/?/, "")
     let CurrentPage = routeMap[currentPage] || Hello
     if (currentPage.match(/user\/\w+|list-page/)) {
-      CurrentPage = () => import()
+      CurrentPage = () => {}
     } else if (currentPage.match(/wizard\/step\/\w+/)) {
-      CurrentPage = () => import()
+      CurrentPage = () => {}
     }
 
     return (

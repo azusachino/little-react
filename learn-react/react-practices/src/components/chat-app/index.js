@@ -1,4 +1,5 @@
 import React from 'react'
+import withTimer from '../with-timer'
 
 class MessageList extends React.PureComponent {
   render() {
@@ -8,17 +9,17 @@ class MessageList extends React.PureComponent {
   }
 }
 
-export class ChatApp extends React.Component {
+class ChatApp extends React.Component {
   state = {
     messages: [],
     inputMsg: ""
   }
   handleInput = evt => {
     this.setState({
-      inPutMsg: evt.target.inputMsg
+      inputMsg: evt.target.inputMsg
     })
   }
-  handleSend = () =>{
+  handleSend = () => {
     const txt = this.state.inputMsg
     if (txt) {
       const newMessages = [...this.state.messages, txt]
@@ -34,7 +35,7 @@ export class ChatApp extends React.Component {
       <div>
         <MessageList messages={this.state.messages}/>
         <div>
-          <input value={this.state.inputMsg} />
+          <input type="text" value={this.state.inputMsg} onChange={this.handleInput}/>
           <button onClick={this.handleSend}>Send</button>
         </div>
         <h2>{this.props.time.toLocaleString()}</h2>
@@ -43,4 +44,4 @@ export class ChatApp extends React.Component {
   }
 }
 
-export default ChatApp
+export default withTimer(ChatApp)
