@@ -12,7 +12,7 @@ export default class CommentItem extends React.PureComponent {
     return (
       <div className="comment-item">
         <span className="avatar"/>
-        <a href="#">{author}</a>
+        <a href={{}}>{author}</a>
         <p>{content}</p>
       </div>
     )

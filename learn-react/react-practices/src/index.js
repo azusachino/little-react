@@ -7,7 +7,12 @@ import ChatApp from "./components/chat-app";
 import CommentBox from "./components/comment-box";
 import {TabSelectorSample} from "./components/tab-selector";
 import {StatefulTabSelectSample} from "./components/tab-selector/StatefulTabSelector";
-
+import Locale from './components/locale'
+import PureRedux from './components/pure-redux'
+import CounterSample from "./components/counter";
+import RouterSample from "./components/router";
+import RouterParams from "./components/router/RouterParams";
+import NestedRouter from "./components/router/NestedRouter";
 // css
 import 'antd/dist/antd.css'
 import './index.css'
@@ -28,7 +33,13 @@ const routeMap = {
   "chat": ChatApp,
   "comment-box": CommentBox,
   "tab-selector": TabSelectorSample,
-  "stateful-tab-selector": StatefulTabSelectSample
+  "stateful-tab-selector": StatefulTabSelectSample,
+  "locale": Locale,
+  "pure-redux": PureRedux,
+  "counter-sample": CounterSample,
+  "router-sample": RouterSample,
+  "nested-router": NestedRouter,
+  "router-params": RouterParams
 }
 
 class App extends PureComponent {
@@ -42,9 +53,11 @@ class App extends PureComponent {
     const currentPage = document.location.hash.replace(/#\/?/, "")
     let CurrentPage = routeMap[currentPage] || Hello
     if (currentPage.match(/user\/\w+|list-page/)) {
-      CurrentPage = () => {}
+      CurrentPage = () => {
+      }
     } else if (currentPage.match(/wizard\/step\/\w+/)) {
-      CurrentPage = () => {}
+      CurrentPage = () => {
+      }
     }
 
     return (
@@ -62,7 +75,7 @@ class App extends PureComponent {
           ))}
         </ul>
         <div style={{padding: "30px 0"}}>
-          <CurrentPage />
+          <CurrentPage/>
         </div>
       </div>
     )
