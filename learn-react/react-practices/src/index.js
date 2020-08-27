@@ -13,6 +13,10 @@ import CounterSample from "./components/counter";
 import RouterSample from "./components/router";
 import RouterParams from "./components/router/RouterParams";
 import NestedRouter from "./components/router/NestedRouter";
+import FormSubmit from "./components/form-builder/form-submit"
+import FormSubmitAntd from "./components/form-builder/form-submit-antd";
+import DynamicForm from "./components/dynamic-form";
+import WizardSample from "./components/register-step";
 // css
 import 'antd/dist/antd.css'
 import './index.css'
@@ -39,7 +43,11 @@ const routeMap = {
   "counter-sample": CounterSample,
   "router-sample": RouterSample,
   "nested-router": NestedRouter,
-  "router-params": RouterParams
+  "router-params": RouterParams,
+  "form-submit": FormSubmit,
+  "form-submit-antd": FormSubmitAntd,
+  "dynamic-form": DynamicForm,
+  "wizard-sample": WizardSample
 }
 
 class App extends PureComponent {
