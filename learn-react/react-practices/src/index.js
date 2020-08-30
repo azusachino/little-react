@@ -17,16 +17,22 @@ import FormSubmit from "./components/form-builder/form-submit"
 import FormSubmitAntd from "./components/form-builder/form-submit-antd";
 import DynamicForm from "./components/dynamic-form";
 import WizardSample from "./components/register-step";
+import Layout1 from "./components/layout/layout1";
+import Layout2 from "./components/layout/layout2";
+import LayoutResize from "./components/layout/layout-resize";
+import PortalSample from "./components/portal";
+import DndSample from "./components/dnd";
+import Reselect from "./components/reselect"
 // css
 import 'antd/dist/antd.css'
 import './index.css'
 
-/*import loadable from 'react-loadable'
+import loadable from 'react-loadable'
 
 const d3Sample = loadable({
-  loader: () => import(""),
+  loader: () => import("./components/d3"),
   loading: () => <div>loading...</div>
-})*/
+})
 
 const styles = {
   fontFamily: 'sans-serif',
@@ -47,7 +53,14 @@ const routeMap = {
   "form-submit": FormSubmit,
   "form-submit-antd": FormSubmitAntd,
   "dynamic-form": DynamicForm,
-  "wizard-sample": WizardSample
+  "wizard-sample": WizardSample,
+  "layout1": Layout1,
+  "layout2": Layout2,
+  "layout-resize": LayoutResize,
+  "portal-sample": PortalSample,
+  "d3-sample": d3Sample,
+  "dnd-sample": DndSample,
+  "reselect": Reselect
 }
 
 class App extends PureComponent {
